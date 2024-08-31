@@ -1,17 +1,35 @@
 import React from 'react'
 import SIdeNav from './components/SIdeNav'
-import { Link } from 'react-router-dom'
+import {Route,Routes,Router, Link } from 'react-router-dom'
+import TopNav from './components/TopNav'
+import Hero from './components/Hero'
+import Cards from './components/Cards'
+import Home from './components/Home'
+import Trending from './components/Trending'
+import Popular from './components/Popular'
+import TvShows from './components/TvShows'
+import People from './components/People'
+import MovieDetails from './components/MovieDetails'
+import Tv from './components/Tv'
+import Persondetails from './components/Persondetails'
 const App = () => {
   return (
-   <div className='w-full h-screen flex bg-zinc-900'>
-    <div className='Left-Part border-r w-[30%] p-4 h-full   '>
-      <SIdeNav/> 
-      </div>
-      <div className='Right-Part w-full   h-full  '>
-
-      </div>
+   <div className='w-full h-[135vh] flex  bg-zinc-900'>
+    <Routes>
+        <Route path='/'  element= {<Home/>}></Route>
+        <Route path='/trending' element={<Trending/>}></Route>
+        <Route path='/trending/movidetails/:id' element={<MovieDetails/>}></Route>
+        <Route path='/popular' element={<Popular/>} ></Route>
+        <Route path='/popular/movidetails/:id' element={<MovieDetails/>}></Route>
+        <Route path='/tvshows' element={<TvShows/>}></Route>
+        <Route path='/tv/tvdetails/:id' element={<Tv/>}></Route>
+        <Route path='/person' element={<People/>}></Route>
+        <Route path='/person/persondetails/:id' element={<Persondetails/>}></Route>
+   </Routes>
    </div>
-  )
+      
+      
+  ) 
 }
 
 export default App
