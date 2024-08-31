@@ -12,6 +12,8 @@ import People from './components/People'
 import MovieDetails from './components/MovieDetails'
 import Tv from './components/Tv'
 import Persondetails from './components/Persondetails'
+
+
 const App = () => {
   return (
    <div className='w-full h-[135vh] flex  bg-zinc-900'>

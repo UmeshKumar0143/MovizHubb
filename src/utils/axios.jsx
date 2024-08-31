@@ -4,9 +4,10 @@ const instance = axios.create({
     baseURL:"https://api.themoviedb.org/3/",
     headers: {
         accept: 'application/json',
-        Authorization: `Bearer ${process.env.API_KEY} `
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY} `
       }
+      
 }
 )
-
+console.log(import.meta.env.VITE_API_KEY)
 export default  instance
