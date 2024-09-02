@@ -51,7 +51,7 @@ const MovieDetails = () => {
           }}
           className="w-full h-full"
         >
-          <div className='top-div w-full py-3 items-center px-3'>
+          <div className='top-div w-full py-3 mt-3 items-center px-3'>
             <div className='Icons flex items-center gap-16'>
               <IoArrowBack onClick={() => navigate(-1)} className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' />
               <LuExternalLink className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' />
@@ -59,7 +59,12 @@ const MovieDetails = () => {
               <span className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl'>IMDB</span>
             </div>
           </div>
-          <div className='heading mt-8 ml-16 w-[100vh]'>
+         
+          <div className='heading mt-12 ml-16  flex items-center gap-5 w-[140vh]'>
+            <div className='img-detail  w-[50vh]'>
+              <img  className='w-full hover:cursor-pointer hover:scale-105 transition-all duration-100  rounded-md border h-[45vh]' src={`https://image.tmdb.org/t/p/original/${info.details.backdrop_path}`} alt="" />
+            </div>
+            <div className='text-details'>
             <h1 className='text-6xl font-bold uppercase'>
               {info.details.title ||
                 info.details.name ||
@@ -89,6 +94,7 @@ const MovieDetails = () => {
             <div className='watchtrailer mt-8'>
               <button className='px-4 py-3 hover:bg-purple-700 bg-purple-600 rounded-md font-semibold'>Watch Trailer</button>
             </div>
+          </div>
           </div>
         </div>
       )}
