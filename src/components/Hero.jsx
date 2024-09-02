@@ -16,7 +16,7 @@ const Hero = () => {
   }, []);
 
   return wallpaper ? (
-    <div className="w-[150vh]  mx-auto  text-white  mt-12 ">
+    <Link to={`/trending/${wallpaper.media_type}/${wallpaper.id}`} className="w-[150vh]  mx-auto  text-white  mt-12 ">
       <div
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.7), rgba(0,0,0,.9)), 
@@ -46,7 +46,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   ) : (
     <div className="w-full h-full flex justify-center items-center">
     <TailSpin

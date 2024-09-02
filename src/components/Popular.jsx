@@ -26,6 +26,7 @@ const Popular = () => {
 
   const getMovies = async () => {
     const { data } = await axios.get(`${type}/popular?page=${page}`);
+    
     if(data.results.length>0){
     setMovies((prev)=> [...prev,...data.results])
     setpage(page+1);

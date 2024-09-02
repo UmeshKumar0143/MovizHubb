@@ -3,6 +3,7 @@ import axios from '../utils/axios';
 import { IoSearch } from 'react-icons/io5';
 import { RxCross1 } from 'react-icons/rx';
 import Hero from './Hero';
+import { Link } from 'react-router-dom';
 
 const TopNav = () => {
   const [query, setQuery] = useState("");
@@ -41,7 +42,7 @@ const TopNav = () => {
         <div className="  z-[100] Searches_Results w-[80%] flex flex-col overflow-hidden overflow-y-auto p-3 max-h-[40vh] bg-zinc-500 absolute top-16 gap-3 left-32">
           {searches.length > 0 ? (
             searches.map((item, index) => (
-              <div key={index} className="Search-Item w-full flex gap-12 py-5 px-4 hover:border-[1px] cursor-pointer bg-zinc-800">
+              <Link to={`/${item.media_type}/${item.id}`} key={index} className="Search-Item w-full flex gap-12 py-5 px-4 hover:border-[1px] cursor-pointer bg-zinc-800">
                 <div className="Img-div w-[15%] h-20">
                   <img
                     className="rounded border-black w-full h-full object-cover shadow-sm"
@@ -54,7 +55,7 @@ const TopNav = () => {
                     {item.title || item.name || item.original_name || item.original_title}
                   </h1>
                 </div>
-              </div>
+              </Link>
             ))
           ) : (
             <h1 className="text-center text-xl">No results found</h1>

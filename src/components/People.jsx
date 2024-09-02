@@ -24,7 +24,7 @@ const People = () => {
 
   const getMovies = async () => {
     const { data } = await axios.get(`person/popular?page=${page}`);
-    console.log(data.results[0].profile_path)
+    console.log(data.results)
     if(data.results.length>0){
     setMovies((prev)=> [...prev,...data.results])
     setpage(page+1);

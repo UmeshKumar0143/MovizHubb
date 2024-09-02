@@ -32,14 +32,14 @@ const RealCards = ({page,getMovies,hasMore,movies}) => {
             className="flex  text-white w-full flex-wrap  py-3 gap-10 relative   select-none  "
             >
             {movies.map((item, index) => (
-              <Link to={`/popular/movidetails/${item.id}`}
+              <Link to={`/trending/${item.media_type}/${item.id}`}
                 key={index}
                 className=" hover:scale-105 transition-all ease-in-out duration-75  rounded-md hover:cursor-pointer  Cards w-[35vh] ml-4 min-h-[55vh] mt-4 hover:border-2 p-3 "
               >
                 <div className="img-div w-full h-[45vh]">
                   <img
                     className="w-full h-full object-cover"
-                    src={`https://image.tmdb.org/t/p/original/${item.backdrop_path} || ${item.profile_path}`}
+                    src={`https://image.tmdb.org/t/p/original/${item.profile_path? item.profile_path: item.backdrop_path}  `}
                     alt=""
                   />
                 </div>

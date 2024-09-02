@@ -25,6 +25,7 @@ const Trending = () => {
 
   const getMovies = async () => {
     const { data } = await axios.get(`/trending/${type}/${time}?page=${page}`);
+    console.log(data.results);
     if(data.results.length>0){
     setMovies((prev)=> [...prev,...data.results])
     setpage(page+1);
@@ -218,7 +219,7 @@ const Trending = () => {
         </div>
         </div>
         
-       <RealCards movies={movies} page={page}  getMovies={getMovies} hasMore={hasMore}  />
+       <RealCards  movies={movies} page={page}  getMovies={getMovies} hasMore={hasMore}  />
         
       </div>
     </div>

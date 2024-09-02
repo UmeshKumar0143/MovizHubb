@@ -69,9 +69,9 @@ useEffect(()=>{
      
      
       {movies.map((item,index)=> <div key={index} className=" hover:scale-105 transition-all ease-in-out duration-75  rounded-md hover:cursor-pointer  Cards min-w-[35vh] ml-2 h-[45vh] mt-2 ">
-      <div className="img-div w-full  h-[24vh]">
+      <Link to={`/trending/${item.media_type}/${item.id}`} className="img-div w-full  h-[24vh]">
         <img className="w-full h-full object-cover" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path} || ${item.profile_path}`} alt="" />
-      </div>
+      </Link>
       <div className='px-2 py-2'>
                 <h1 className='text-2xl font-bold uppercase '>{item.title || item.name || item.original_name || item.original_title}</h1>
 
