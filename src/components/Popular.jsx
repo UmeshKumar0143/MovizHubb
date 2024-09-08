@@ -174,7 +174,7 @@ const Popular = () => {
           </h1>
         </div>
        
-        <RealCards movies={movies} page={page}  getMovies={getMovies} hasMore={hasMore}  />
+        <RealCards movies={movies} page={page} type = {type} getMovies={getMovies} hasMore={hasMore}  />
       </div>
     </div>
   ) : (

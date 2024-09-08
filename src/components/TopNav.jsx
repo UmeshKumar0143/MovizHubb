@@ -42,7 +42,7 @@ const TopNav = () => {
         <div className="  z-[100] Searches_Results w-[80%] flex flex-col overflow-hidden overflow-y-auto p-3 max-h-[40vh] bg-zinc-500 absolute top-16 gap-3 left-32">
           {searches.length > 0 ? (
             searches.map((item, index) => (
-              <Link to={`/${item.media_type}/${item.id}`} key={index} className="Search-Item w-full flex gap-12 py-5 px-4 hover:border-[1px] cursor-pointer bg-zinc-800">
+              <Link to={`/${item.media_type || 'movie' || 'tv'}/${item.id}`} key={index} className="Search-Item w-full flex gap-12 py-5 px-4 hover:border-[1px] cursor-pointer bg-zinc-800">
                 <div className="Img-div w-[15%] h-20">
                   <img
                     className="rounded border-black w-full h-full object-cover shadow-sm"

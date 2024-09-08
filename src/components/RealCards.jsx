@@ -4,7 +4,9 @@ import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroller";
 import { RiUserStarFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-const RealCards = ({page,getMovies,hasMore,movies}) => {
+const default_img = '/img/noimg.png'
+
+const RealCards = ({page,getMovies,hasMore,movies, type}) => {
   return (
     <div
           className="Trending-Cards w-full z-[20]
@@ -32,7 +34,7 @@ const RealCards = ({page,getMovies,hasMore,movies}) => {
             className="flex  text-white w-full flex-wrap  py-3 gap-10 relative   select-none  "
             >
             {movies.map((item, index) => (
-              <Link to={`/trending/${item.media_type}/${item.id}`}
+              <Link to={`/trending/${item.media_type || 'movie' || 'tv' }/${item.id}`}
                 key={index}
                 className=" hover:scale-105 transition-all ease-in-out duration-75  rounded-md hover:cursor-pointer  Cards w-[35vh] ml-4 min-h-[55vh] mt-4 hover:border-2 p-3 "
               >
@@ -40,6 +42,10 @@ const RealCards = ({page,getMovies,hasMore,movies}) => {
                   <img
                     className="w-full h-full object-cover"
                     src={`https://image.tmdb.org/t/p/original/${item.profile_path? item.profile_path: item.backdrop_path}  `}
+                    onError={ (e) => {
+                      e.target.error = null; 
+                      e.target.src = default_img; 
+                    }}
                     alt=""
                   />
                 </div>
