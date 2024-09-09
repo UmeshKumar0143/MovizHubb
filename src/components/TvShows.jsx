@@ -7,6 +7,7 @@ import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroller";
 import { RiUserStarFill } from "react-icons/ri";
 import RealCards from "./RealCards";
+import Loader from "./Loader";
 const TvShows = () => {
   const [query, setQuery] = useState("");
   const [searches, setSearches] = useState([]);
@@ -178,18 +179,7 @@ const TvShows = () => {
       </div>
     </div>
   ) : (
-    <div className="w-full h-full flex justify-center items-center">
-      <TailSpin
-        visible={true}
-        height="80"
-        width="80"
-        color="purple"
-        ariaLabel="tail-spin-loading"
-        radius="1"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
-    </div>
+    <Loader />
   );
 };
 

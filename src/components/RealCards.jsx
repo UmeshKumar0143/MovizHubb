@@ -4,6 +4,7 @@ import axios from "../utils/axios";
 import InfiniteScroll from "react-infinite-scroller";
 import { RiUserStarFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 const default_img = '/img/noimg.png'
 
 const RealCards = ({page,getMovies,hasMore,movies, type}) => {
@@ -14,18 +15,7 @@ const RealCards = ({page,getMovies,hasMore,movies, type}) => {
         >
           <InfiniteScroll
           pageStart={page} 
-          loader={ <div className="w-full h-full flex justify-center items-center">
-            <TailSpin
-              visible={true}
-              height="80"
-              width="80"
-              color="purple"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          </div>} 
+          loader={ <Loader />} 
           loadMore={getMovies}
           hasMore= {hasMore}
           >

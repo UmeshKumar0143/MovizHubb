@@ -18,7 +18,7 @@ const Trailer = () => {
           />
         </div>
         <div className="w-full h-full border border-zinc-400 p-1 hover:border-2">
-          <ReactPlayer width='100%' height='100%'  controls = {true} url={`https://www.youtube.com/watch?v=${watchid}`} />
+          {watchid? <ReactPlayer width='100%' height='100%'  controls = {true} url={`https://www.youtube.com/watch?v=${watchid}`} /> : <h1>Loading</h1>  }
         </div>
       </div>
     </div>

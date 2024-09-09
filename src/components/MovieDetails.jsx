@@ -10,6 +10,7 @@ import { TailSpin } from 'react-loader-spinner';
 import { removeMovie } from '../store/reducers/movieSlice';
 import Cards from './Cards';
 import { FaPlayCircle } from 'react-icons/fa';
+import Loader from './Loader';
 
 const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -30,18 +31,7 @@ const MovieDetails = () => {
   return (
     <div key={`${id}-${type}`} className='text-white w-full h-full '>
       {loading || !info ? (
-        <div className="w-full h-full flex justify-center items-center">
-          <TailSpin
-            visible={true}
-            height="80"
-            width="80"
-            color="purple"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        </div>
+        <Loader />
       ) : (
         <div
           style={{
@@ -56,9 +46,6 @@ const MovieDetails = () => {
           <div className='top-div w-full py-3 mt-3 items-center px-3'>
             <div className='Icons flex items-center gap-16'>
               <IoArrowBack onClick={() => navigate(-1)} className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' />
-              <LuExternalLink className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' />
-              <FaEarthAmericas className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' />
-              <span className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl'>IMDB</span>
             </div>
           </div>
          
