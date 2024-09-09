@@ -4,9 +4,10 @@ import { loadMovie,removeMovie } from "../reducers/movieSlice";
 export const asyncLoadMovie = (id,type) => async(dispatch,getState) => {
 
     try {
+        console.log(type)
         const details = await axios.get(`/${type}/${id}`)
         const externalId =  await axios.get(`/${type}/${id}/external_ids`)
-        const recommendations = await axios.get(`/movie/${id}/recommendations`)
+        const recommendations = await axios.get(`/${type}/${id}/recommendations`)
         const similar = await axios.get(`/${type}/${id}/similar`)
         const videos = await axios.get(`/${type}/${id}/videos`)
         const watchProviders = await axios.get(`/${type}/${id}/watch/providers`)

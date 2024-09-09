@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncLoadMovie } from '../store/actions/movieActions';
 import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
-import { IoArrowBack } from 'react-icons/io5';
+import { IoArrowBack, IoHome } from 'react-icons/io5';
 import { LuExternalLink } from 'react-icons/lu';
 import { FaEarthAmericas } from 'react-icons/fa6';
 import { TfiAnnouncement } from 'react-icons/tfi';
@@ -44,12 +44,13 @@ const MovieDetails = () => {
           className="w-full h-[90vh] relative "
         >
           <div className='top-div w-full py-3 mt-3 items-center px-3'>
-            <div className='Icons flex items-center gap-16'>
+            <div className='Icons flex items-center gap-8'>
               <IoArrowBack onClick={() => navigate(-1)} className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' />
+              <IoHome className='hover:scale-110 transition-all duration-100 ease-in-out hover:cursor-pointer hover:text-purple-500 text-3xl' onClick={()=>navigate('/')}></IoHome>
             </div>
           </div>
          
-          <div className='heading mt-12 ml-16  flex items-center gap-5 w-[140vh]'>
+          <div className='heading mt-12 ml-16 flex items-center gap-8 w-[170vh]'>
             <div className='img-detail p w-[60vh] '>
               <img  className='w-full hover:cursor-pointer hover:scale-105 transition-all duration-100  rounded-md border h-[50vh]' src={`https://image.tmdb.org/t/p/original/${info.details.backdrop_path}`} alt="" />
             </div>
@@ -61,7 +62,7 @@ const MovieDetails = () => {
                 info.details.original_title}
             </h1>
 
-            <div className='flex items-center gap-5 mt-3  w-[109fvh]'>
+            <div className='flex items-center gap-5 mt-3  w-[109vh]'>
               <h4 className='text-lg flex items-center gap-2'>
                 <span><TfiAnnouncement className='text-yellow-400 fill-yellow-400' /></span>
                 Release on: <span className={`font-medium ${info.details.release_date? "text-zinc-200" : "text-zinc-400"}`} >{info.details.release_date || "Not Avialable"}</span>
@@ -81,7 +82,7 @@ const MovieDetails = () => {
             </div>
 
             <div className='watchtrailer mt-8'>
-              <Link to={`trailer/${info.videos.key}`} className='w-[20vh] py-3 hover:bg-purple-700 bg-purple-600 rounded-md font-semibold flex justify-center items-center gap-2'><span className='text-xl'><FaPlayCircle/></span> Watch Trailer</Link>
+              <Link to={`trailer/${info?.videos?.key}`} className='w-[20vh] py-3 hover:bg-purple-700 bg-purple-600 rounded-md font-semibold flex justify-center items-center gap-2'><span className='text-xl'><FaPlayCircle/></span> Watch Trailer</Link>
             </div>
           </div>
           </div>

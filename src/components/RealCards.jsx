@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Loader from './Loader';
 const default_img = '/img/noimg.png'
 
-const RealCards = ({page,getMovies,hasMore,movies, type}) => {
+const RealCards = ({page,getMovies,hasMore,movies, title}) => {
   return (
     <div
           className="Trending-Cards w-full z-[20]
@@ -24,7 +24,7 @@ const RealCards = ({page,getMovies,hasMore,movies, type}) => {
             className="flex  text-white w-full flex-wrap  py-3 gap-10 relative   select-none  "
             >
             {movies.map((item, index) => (
-              <Link to={`/trending/${item.media_type || 'movie' || 'tv' }/${item.id}`}
+              <Link to={`/${item.media_type || title }/${item.id}`}
                 key={index}
                 className=" hover:scale-105 transition-all ease-in-out duration-75  rounded-md hover:cursor-pointer  Cards w-[35vh] ml-4 min-h-[55vh] mt-4 hover:border-2 p-3 "
               >

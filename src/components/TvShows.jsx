@@ -175,7 +175,7 @@ const TvShows = () => {
             Tv-Shows
           </h1>
         </div>
-         <RealCards movies={movies} page={page}  getMovies={getMovies} hasMore={hasMore}  />
+         <RealCards movies={movies} title = {'tv'} page={page}  getMovies={getMovies} hasMore={hasMore}  />
       </div>
     </div>
   ) : (
